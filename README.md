@@ -1,4 +1,4 @@
-# reusable-check-pull-request-title
+# Reusable Check Pull Request Title
 
 A reusable GitHub Actions workflow that validates pull request titles conform to the required semantic versioning prefix format.
 
