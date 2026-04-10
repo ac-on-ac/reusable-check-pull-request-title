@@ -21,8 +21,10 @@ jobs:
           result-encoding: string
 
       - name: Validate PR title format
+        env:
+          PR_TITLE: ${{ steps.get_pr_title.outputs.result }}
         run: |
-          pr_title="${{ steps.get_pr_title.outputs.result }}"
+          pr_title="$PR_TITLE"
           echo "Checking PR title: '$pr_title'"
           if [[ "$pr_title" == patch:* ]] || [[ "$pr_title" == minor:* ]] || [[ "$pr_title" == major:* ]] || \
              [[ "$pr_title" == rc-patch:* ]] || [[ "$pr_title" == rc-minor:* ]] || [[ "$pr_title" == rc-major:* ]]; then
